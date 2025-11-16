@@ -56,7 +56,9 @@ app.post("/api/chat", async (req, res) => {
     const headers = { "Content-Type": "application/json" };
     if (doKey) headers["Authorization"] = `Bearer ${doKey}`;
 
-    const resp = await fetch(doEndpoint, {
+    // DigitalOcean Agent expects requests at the /api/v1/chat/completions
+    const agentPath = `${doEndpoint.replace(/\/$/, "")}/api/v1/chat/completions`;
+    const resp = await fetch(agentPath, {
       method: "POST",
       headers,
       body: JSON.stringify(payload)
