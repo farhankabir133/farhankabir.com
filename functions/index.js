@@ -95,6 +95,27 @@ app.post("/api/chat", async (req, res) => {
 });
 
 // =======================================================
+// Health Check Endpoint
+// =======================================================
+app.get('/api/health', async (req, res) => {
+  try {
+    const doEndpoint = process.env.DO_AGENT_ENDPOINT;
+    if (!doEndpoint) {
+      return res.status(500).json({ healthy: false, error: 'DigitalOcean agent endpoint not configured' });
+    }
+
+    // The agent exposes a /health GET per its OpenAPI; call it to verify availability
+    const healthUrl = `${doEndpoint.replace(/\/$/, '')}/health`;
+    const resp = await fetch(healthUrl, { method: 'GET' });
+    const text = await resp.text().catch(() => null);
+    return res.status(resp.ok ? 200 : 502).json({ healthy: resp.ok, status: resp.status, body: text });
+  } catch (err) {
+    console.error('Health check error:', err);
+    return res.status(500).json({ healthy: false, error: String(err) });
+  }
+});
+
+// =======================================================
 // Contact Form Endpoint
 // =======================================================
 app.post("/api/contact", async (req, res) => {
