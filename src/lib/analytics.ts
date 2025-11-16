@@ -11,6 +11,12 @@ export const analytics = {
     walletConnections: 0,
     dailyStats: {},
   }),
+  // Lightweight no-op track function used during development.
+  // Signature: analytics.track(eventName: string, payload?: Record<string, any>)
+  track: async (_eventName: string, _payload?: Record<string, any>) => {
+    // no-op
+    return Promise.resolve();
+  },
 };
 
 export default analytics;
