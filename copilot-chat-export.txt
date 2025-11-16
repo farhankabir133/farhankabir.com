@@ -1,0 +1,8 @@
+Add-Content -Path "copilot-chat-history.txt" -Value (Get-Clipboard)
+Add-Content -Path "copilot-chat-history.txt" -Value "`n---`n"
+Write-Host "Chat history appended to copilot-chat-history.txt"
+
+---
+
+powershell -ExecutionPolicy Bypass -File .\save-copilot-chat.ps1
+---

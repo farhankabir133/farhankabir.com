@@ -1,0 +1,85 @@
+@import url('./typography.css');
+
+/* ===== Responsive safety net =====
+	 These global rules fix common responsiveness problems across components:
+	 - Ensure box-sizing is consistent
+	 - Prevent horizontal overflow on small devices
+	 - Make media elements scale down
+	 - Provide a reusable `.section-container` that constrains content while
+		 remaining fluid on small screens
+	 - Provide a responsive chat widget container
+*/
+
+/* Box sizing */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll due to absolute overlays */
+html, body, #root {
+	width: 100%;
+	max-width: 100vw; /* prevent any element from forcing a wider layout */
+	overflow-x: hidden;
+}
+
+/* Ensure fixed elements don't unintentionally expand beyond the viewport */
+.fixed {
+	max-width: 100vw;
+	box-sizing: border-box;
+}
+
+/* Make media scale responsively */
+img, picture, video, canvas, svg {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Utility container used by main content (keeps layout centered and padded)
+	 Uses a fluid width with a comfortable max to prevent overflow on large screens */
+.section-container {
+	width: 100%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+/* Chatbot container: bottom-right anchored on large screens, smaller and
+	 centered on narrow displays so it doesn't overlap important content. */
+.chatbot-container {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 60;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 12px;
+}
+
+/* Full viewport utility: prefer the newer small viewport unit to avoid
+	 mobile browser chrome resizing issues; fall back to 100vh for older
+	 browsers. Use the `full-vh` class on sections that should fill the
+	 viewport (replaces `min-h-screen` when needed). */
+.full-vh {
+	min-height: 100svh;
+	min-height: 100vh;
+}
+
+@media (max-width: 640px) {
+	.chatbot-container {
+		right: 12px;
+		bottom: 12px;
+		left: 12px;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+/* Helpful default for any element that must not overflow its container */
+.no-overflow {
+	max-width: 100%;
+	overflow-wrap: break-word;
+}

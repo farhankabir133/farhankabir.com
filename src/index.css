@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode variables */
+:root {
+  --about-bg-light: #F7E6CA;        /* Soft cream - welcoming */
+  --skill-bg-light: #E8D59E;        /* Warm sandy yellow - eye-catching */
+  --portfolio-bg-light: #D9BBB0;    /* Muted rose - elegant, calm */
+  --testimonials-bg-light: #AD9C8E; /* Earthy taupe - modern and grounded */
+  --blogs-bg-light: #F7E6CA;        /* Reusing cream for balance */
+  --contact-bg-light: #E8D59E;      /* Reusing sandy yellow for freshness */
+  --footer-bg-light:rgba(198, 73, 121, 0);       /* Dark taupe - grounding the bottom */
+  ;       /* Dark taupe - grounding the bottom */
+}
+
+/* Light Mode Section Backgrounds and Separations */
+.light-mode .about-section {
+  background-color: var(--about-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+.light-mode .skill-section {
+  background-color: var(--skill-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: #111827;
+}
+
+.light-mode .work-section {
+  background-color: var(--portfolio-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+.light-mode .client-section {
+  background-color: var(--testimonials-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+}
+
+/* ✅ Fixed: Changed .blogs-section → .insight-section */
+.light-mode .insight-section {
+  background-color: var(--blogs-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+.light-mode .contact-section {
+  background-color: var(--contact-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+.light-mode .footer-section {
+  background-color: var(--footer-bg-light);
+  color: #FFFFFF;
+}
+
+/* Dark mode shared borders */
+.dark-mode .about-section,
+.dark-mode .skill-section,
+.dark-mode .work-section,
+.dark-mode .client-section,
+.dark-mode .insight-section,
+.dark-mode .contact-section,
+.dark-mode .footer-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth transition for theme changes */
+.about-section,
+.skill-section,
+.work-section,
+.client-section,
+.insight-section,
+.contact-section,
+.footer-section {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}

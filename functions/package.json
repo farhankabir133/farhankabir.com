@@ -1,0 +1,21 @@
+{
+  "name": "fk-bot-backend",
+  "version": "1.0.0",
+  "description": "FK-Bot Backend for Chatbot and Contact Form",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Farhan Kabir",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.3",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
+
