@@ -1,6 +1,6 @@
 <!-- Hero Section -->
 <p align="center">
-  <img src="https://github.com/farhankabir133/fk/blob/my-feature/assets/fk.png" alt="FK's Personal Site" height="120" />
+  <img src="https://images.pexels.com/photos/34100614/pexels-photo-34100614.png" alt="FK's Personal Site" height="120" />
 </p>
 <h1 align="center">🤖 A Personal Modern Website with AI Assistant Chatbot</h1>
 <p align="center">
@@ -267,6 +267,7 @@ If you found this project helpful, please consider:
 rm -rf dist
 npm run build
 firebase deploy --only hosting
+
 
 
 
