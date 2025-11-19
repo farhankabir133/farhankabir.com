@@ -88,7 +88,7 @@ const ParticleSwarmBackground: React.FC<{ userName?: string }> = ({ userName = '
         symbolIndex: i % SYMBOLS.length,
       }))
     );
-    // eslint-disable-next-line
+     
   }, []);
 
   // Swarm "learning" and pattern change
@@ -119,10 +119,10 @@ const ParticleSwarmBackground: React.FC<{ userName?: string }> = ({ userName = '
           let tx = targets[i].x;
           let ty = targets[i].y;
           // Mouse repulsion
-          let dx = p.x - mouse.x;
-          let dy = p.y - mouse.y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-          let repel = mouse.active && dist < 120 ? (120 - dist) / 120 : 0;
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const repel = mouse.active && dist < 120 ? (120 - dist) / 120 : 0;
           if (repel > 0) {
             tx += dx * repel * 1.5;
             ty += dy * repel * 1.5;

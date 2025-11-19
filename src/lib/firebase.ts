@@ -21,15 +21,15 @@ if (firebaseConfig.apiKey) {
   try {
     if (!getApps().length) {
       initializeApp(firebaseConfig);
-      // eslint-disable-next-line no-console
+       
       console.log('[firebase] initialized');
     }
   } catch (err) {
-    // eslint-disable-next-line no-console
+     
     console.warn('[firebase] initialization failed:', err);
   }
 } else {
-  // eslint-disable-next-line no-console
+   
   console.info('[firebase] VITE_FIREBASE_API_KEY not set — skipping firebase init');
 }
 

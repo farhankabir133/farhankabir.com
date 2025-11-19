@@ -112,7 +112,7 @@ const GravityCodeOrbsBackground: React.FC = () => {
       ctx.clearRect(0, 0, width, height);
       const now = Date.now();
       for (let i = 0; i < orbs.length; i++) {
-        let orb = orbs[i];
+        const orb = orbs[i];
         // --- Speed Variation Logic ---
         // 1. Accelerate if hovered, clicked, or dragged
         let speedBoost = 1;
@@ -160,17 +160,17 @@ const GravityCodeOrbsBackground: React.FC = () => {
 
         // Orb collision
         for (let j = i + 1; j < orbs.length; j++) {
-          let other = orbs[j];
-          let dx = orb.x - other.x;
-          let dy = orb.y - other.y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
+          const other = orbs[j];
+          const dx = orb.x - other.x;
+          const dy = orb.y - other.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < orb.r + other.r) {
             // Simple elastic collision
-            let angle = Math.atan2(dy, dx);
-            let targetX = other.x + Math.cos(angle) * (orb.r + other.r);
-            let targetY = other.y + Math.sin(angle) * (orb.r + other.r);
-            let ax = (targetX - orb.x) * 0.05;
-            let ay = (targetY - orb.y) * 0.05;
+            const angle = Math.atan2(dy, dx);
+            const targetX = other.x + Math.cos(angle) * (orb.r + other.r);
+            const targetY = other.y + Math.sin(angle) * (orb.r + other.r);
+            const ax = (targetX - orb.x) * 0.05;
+            const ay = (targetY - orb.y) * 0.05;
             orb.vx -= ax;
             orb.vy -= ay;
             other.vx += ax;

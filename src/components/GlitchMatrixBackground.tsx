@@ -44,7 +44,7 @@ const GlitchMatrixBackground: React.FC = () => {
   // Glitch event
   useEffect(() => {
     let glitchTimeout: NodeJS.Timeout;
-    let glitchInterval = setInterval(() => {
+    const glitchInterval = setInterval(() => {
       setGlitch(true);
       glitchTimeout = setTimeout(() => setGlitch(false), randomBetween(180, 400));
     }, randomBetween(1800, 3200));
@@ -57,7 +57,7 @@ const GlitchMatrixBackground: React.FC = () => {
   // Decrypt event
   useEffect(() => {
     let decryptTimeout: NodeJS.Timeout;
-    let decryptInterval = setInterval(() => {
+    const decryptInterval = setInterval(() => {
       setBlocks(blocks =>
         blocks.map(b =>
           Math.random() < 0.08

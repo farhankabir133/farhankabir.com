@@ -13,11 +13,11 @@ let supabaseClientInstance: SupabaseClient | null = null;
 
 if (SUPABASE_URL && SUPABASE_ANON_KEY) {
   supabaseClientInstance = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  // eslint-disable-next-line no-console
+   
   console.info('[supabase] client initialized');
 } else {
   // Only warn in development; in production we keep it informational.
-  // eslint-disable-next-line no-console
+   
   if (import.meta.env.DEV) {
     console.warn('[supabase] VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY not set — using noop client');
   } else {
