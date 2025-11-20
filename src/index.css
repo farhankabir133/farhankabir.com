@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./styles/globals.css";
+
 /* Light mode variables */
 :root {
   --about-bg-light: #F7E6CA;        /* Soft cream - welcoming */
