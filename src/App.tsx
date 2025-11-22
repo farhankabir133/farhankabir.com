@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '@/index.css';
 import CustomCursor from './components/CustomCursor';
+import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -62,6 +63,9 @@ function App() {
 
   return (
   <div className="min-h-[100svh] bg-white dark:bg-slate-900 transition-colors duration-500 light-mode full-vh">
+      {/* Scroll Progress Indicator */}
+      <ScrollProgressIndicator />
+
       {/* Custom animated cursor */}
       <CustomCursor />
 

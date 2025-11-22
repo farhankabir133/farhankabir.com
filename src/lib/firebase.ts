@@ -21,16 +21,22 @@ if (firebaseConfig.apiKey) {
   try {
     if (!getApps().length) {
       initializeApp(firebaseConfig);
-       
-      console.log('[firebase] initialized');
+      // Only log in development
+      if (import.meta.env.DEV) {
+        console.log('[firebase] initialized');
+      }
     }
   } catch (err) {
-     
-    console.warn('[firebase] initialization failed:', err);
+    // Only warn in development
+    if (import.meta.env.DEV) {
+      console.warn('[firebase] initialization failed:', err);
+    }
   }
 } else {
-   
-  console.info('[firebase] VITE_FIREBASE_API_KEY not set — skipping firebase init');
+  // Only log in development
+  if (import.meta.env.DEV) {
+    console.info('[firebase] VITE_FIREBASE_API_KEY not set — skipping firebase init');
+  }
 }
 
 export {};

@@ -16,13 +16,12 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY) {
    
   console.info('[supabase] client initialized');
 } else {
-  // Only warn in development; in production we keep it informational.
+  // Only warn in development; in production we stay silent.
    
   if (import.meta.env.DEV) {
     console.warn('[supabase] VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY not set — using noop client');
-  } else {
-    console.info('[supabase] no env vars set; using noop client');
   }
+  // Silent in production - no console output
 }
 
 // No-op fallback that mimics the `.from(...).select().order().limit()` chain used in the app.

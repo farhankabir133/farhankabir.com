@@ -65,7 +65,10 @@ const AdminDashboard: React.FC = () => {
       setLeads(leadsData || []);
 
     } catch (error) {
-      console.error('Error loading dashboard data:', error);
+      // Only log errors in development
+      if (import.meta.env.DEV) {
+        console.error('Error loading dashboard data:', error);
+      }
     } finally {
       setLoading(false);
     }

@@ -1,11 +1,15 @@
-/* Import project-level globals first so any raw CSS is available
-  before Tailwind injects its layers. Tailwind requires any
-  @import rules to precede other at-rules like @tailwind. */
-@import "./styles/globals.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global font family - Merriweather */
+* {
+  font-family: 'Merriweather', serif !important;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+}
 
 /* Light mode variables */
 :root {
