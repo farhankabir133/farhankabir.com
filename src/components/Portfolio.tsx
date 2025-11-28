@@ -31,7 +31,7 @@ const Portfolio: React.FC = () => {
   }
 
   return (
-    <section id="portfolio" className="py-16 sm:py-20 md:py-24 work-section dark:bg-slate-900 transition-colors duration-300">
+    <section id="portfolio" className="py-16 sm:py-20 md:py-24 work-section bg-slate-50 dark:bg-slate-800 transition-colors duration-300">
       <div className="max-w-screen-4k mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -87,7 +87,7 @@ const Portfolio: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                 whileHover={{ y: -10 }}
               >
                 <div className="relative overflow-hidden aspect-w-4 aspect-h-3">

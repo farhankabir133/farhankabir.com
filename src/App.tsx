@@ -2,7 +2,6 @@ import { useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '@/index.css';
 import CustomCursor from './components/CustomCursor';
-import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +9,7 @@ import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
+import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -63,9 +63,6 @@ function App() {
 
   return (
   <div className="min-h-[100svh] bg-white dark:bg-slate-900 transition-colors duration-500 light-mode full-vh">
-      {/* Scroll Progress Indicator */}
-      <ScrollProgressIndicator />
-
       {/* Custom animated cursor */}
       <CustomCursor />
 
@@ -98,6 +95,9 @@ function App() {
 
           {/* Blog Section */}
           <Blog />
+
+          {/* Publications Section */}
+          <Publications />
 
           {/* Contact Section */}
           <Contact />

@@ -13,14 +13,14 @@ body {
 
 /* Light mode variables */
 :root {
-  --about-bg-light: #F7E6CA;        /* Soft cream - welcoming */
-  --skill-bg-light: #E8D59E;        /* Warm sandy yellow - eye-catching */
-  --portfolio-bg-light: #D9BBB0;    /* Muted rose - elegant, calm */
-  --testimonials-bg-light: #AD9C8E; /* Earthy taupe - modern and grounded */
-  --blogs-bg-light: #F7E6CA;        /* Reusing cream for balance */
-  --contact-bg-light: #E8D59E;      /* Reusing sandy yellow for freshness */
-  --footer-bg-light:rgba(198, 73, 121, 0);       /* Dark taupe - grounding the bottom */
-  ;       /* Dark taupe - grounding the bottom */
+  --about-bg-light: #CFCFCF;        /* Light */
+  --skill-bg-light: #7D7D7D;        /* Dark */
+  --portfolio-bg-light: #CFCFCF;    /* Light */
+  --testimonials-bg-light: #7D7D7D; /* Dark */
+  --blogs-bg-light: #CFCFCF;        /* Light */
+  --publications-bg-light: #7D7D7D; /* Dark */
+  --contact-bg-light: #CFCFCF;      /* Light */
+  --footer-bg-light: #09A1A1;       /* Dark */
 }
 
 /* Light Mode Section Backgrounds and Separations */
@@ -34,7 +34,7 @@ body {
   background-color: var(--skill-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  color: #111827;
+  color: #FFFFFF;
 }
 
 .light-mode .work-section {
@@ -56,6 +56,12 @@ body {
   color: #111827;
 }
 
+.light-mode .publications-section {
+  background-color: var(--publications-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+}
+
 .light-mode .contact-section {
   background-color: var(--contact-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -73,6 +79,7 @@ body {
 .dark-mode .work-section,
 .dark-mode .client-section,
 .dark-mode .insight-section,
+.dark-mode .publications-section,
 .dark-mode .contact-section,
 .dark-mode .footer-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -84,6 +91,7 @@ body {
 .work-section,
 .client-section,
 .insight-section,
+.publications-section,
 .contact-section,
 .footer-section {
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;

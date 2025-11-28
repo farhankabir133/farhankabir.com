@@ -21,7 +21,7 @@ const Skills: React.FC = () => {
   const filteredSkills = skills.filter(skill => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="relative py-16 sm:py-20 md:py-24 skill-section dark:bg-slate-800 transition-colors duration-300 overflow-hidden">
+    <section id="skills" className="relative py-16 sm:py-20 md:py-24 skill-section bg-white dark:bg-slate-900 transition-colors duration-300 overflow-hidden">
       {/* Virtual Terminal Animated Background - Hidden on smaller screens */}
       <div className="hidden md:block">
         <VirtualTerminalBackground />
@@ -35,12 +35,12 @@ const Skills: React.FC = () => {
           className="text-center mb-12 md:mb-16"
         >
           {/* Responsiveness Improvements: Fluid typography for the section title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Skills & Expertise
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6 md:mb-8" />
           {/* Responsiveness Improvements: Fluid typography for the paragraph */}
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl max-w-3xl mx-auto opacity-90">
             A comprehensive overview of my technical abilities, creative skills, and professional competencies
           </p>
         </motion.div>
@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
               className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 ${
                 activeCategory === category.key
                   ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                  : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:shadow-md'
+                  : 'bg-white/90 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:shadow-md'
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -90,7 +90,7 @@ const Skills: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white dark:bg-slate-700 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-white dark:bg-slate-800 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
@@ -99,7 +99,7 @@ const Skills: React.FC = () => {
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                     {skill.name}
                   </h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 capitalize">
+                  <p className="text-sm capitalize opacity-70">
                     {skill.category}
                   </p>
                 </div>
@@ -108,7 +108,7 @@ const Skills: React.FC = () => {
               {/* Skill Bar */}
               <div className="relative">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300">
+                  <span className="text-xs sm:text-sm font-medium opacity-80">
                     Proficiency
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">

@@ -21,7 +21,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 sm:py-20 md:py-24 client-section dark:bg-slate-800 transition-colors duration-300 overflow-hidden">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-24 client-section bg-white dark:bg-slate-900 transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -30,11 +30,11 @@ const Testimonials: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             What Clients Say
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6 md:mb-8" />
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl max-w-3xl mx-auto opacity-90">
             Don't just take my word for it. Here's what my clients and colleagues have to say about working with me.
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ const Testimonials: React.FC = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -50, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="bg-white dark:bg-slate-700 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative"
+                className="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative"
               >
                 <Quote className="hidden sm:block absolute top-4 left-4 sm:top-6 sm:left-6 w-8 h-8 text-amber-400 opacity-20" />
                 
@@ -91,10 +91,10 @@ const Testimonials: React.FC = () => {
             </AnimatePresence>
 
             <div className="hidden sm:flex absolute inset-y-0 left-0 -translate-x-1/2 items-center">
-              <motion.button onClick={prevTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 text-slate-700 dark:text-slate-300 hover:text-amber-500" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Previous testimonial"><ChevronLeft className="w-6 h-6" /></motion.button>
+              <motion.button onClick={prevTestimonial} className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 text-slate-700 dark:text-slate-300 hover:text-amber-500" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Previous testimonial"><ChevronLeft className="w-6 h-6" /></motion.button>
             </div>
             <div className="hidden sm:flex absolute inset-y-0 right-0 translate-x-1/2 items-center">
-                <motion.button onClick={nextTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 text-slate-700 dark:text-slate-300 hover:text-amber-500" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Next testimonial"><ChevronRight className="w-6 h-6" /></motion.button>
+                <motion.button onClick={nextTestimonial} className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 text-slate-700 dark:text-slate-300 hover:text-amber-500" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Next testimonial"><ChevronRight className="w-6 h-6" /></motion.button>
             </div>
           </motion.div>
 
@@ -133,7 +133,7 @@ const Testimonials: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-              className={`bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col ${
+              className={`bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col ${
                 index === currentIndex ? 'ring-2 ring-amber-400' : ''
               }`}
               onClick={() => setCurrentIndex(index)}
