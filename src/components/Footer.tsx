@@ -25,14 +25,15 @@ const brand = {
 
 // Social icons matching the reference image exactly
 const socials = [
-  { name: "Medium", icon: SiMedium, href: "#", color: "#000000" },
-  { name: "LinkedIn", icon: SiLinkedin, href: "#", color: "#0A66C2" },
+  { name: "X", icon: SiX, href: "https://x.com/fkh_236", color: "#000000" },
+  { name: "Medium", icon: SiMedium, href: "https://medium.com/@farhankabir133", color: "#000000" },
+  { name: "Facebook", icon: SiFacebook, href: "https://web.facebook.com/baba111b/", color: "#1877F2" },
+  { name: "GitHub", icon: SiGithub, href: "https://github.com/farhankabir133", color: "#181717" },
+  { name: "Instagram", icon: SiInstagram, href: "https://www.instagram.com/_farhan_kabir/", color: "#E4405F" },
+  { name: "LinkedIn", icon: SiLinkedin, href: "https://www.linkedin.com/in/farhankabir133/", color: "#0A66C2" },
+  // keep optional/legacy icons (Gravatar, ORCID) but without links unless you want them
   { name: "Gravatar", icon: SiGravatar, href: "#", color: "#1E8CBE" },
   { name: "ORCID", icon: SiOrcid, href: "#", color: "#A6CE39" },
-  { name: "Instagram", icon: SiInstagram, href: "#", color: "#E4405F" },
-  { name: "Facebook", icon: SiFacebook, href: "#", color: "#1877F2" },
-  { name: "GitHub", icon: SiGithub, href: "#", color: "#181717" },
-  { name: "Twitter", icon: SiX, href: "#", color: "#000000" },
 ];
 
 const Footer = () => {
