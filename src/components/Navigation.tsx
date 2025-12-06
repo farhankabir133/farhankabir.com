@@ -62,8 +62,7 @@ const Navigation: React.FC = () => {
           "
         >
           {/* Branding */}
-          <h1 className="font-semibold text-[clamp(1rem,1.6vw,1.25rem)] tracking-wide 
-                         text-neutral-900 dark:text-neutral-100">
+          <h1 className="font-semibold text-[clamp(1rem,1.6vw,1.25rem)] tracking-wide text-neutral-900 dark:text-neutral-100 cursor-pointer" onClick={() => scrollToSection('#home', 'Home')}>
             Farhan Kabir
           </h1>
 
