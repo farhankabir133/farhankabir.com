@@ -140,12 +140,14 @@ const Footer = () => {
         >
           {socials.map((item) => {
             const IconComponent = item.icon;
-            return (
+              return (
               <motion.a
                 whileHover={{ y: -5, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 key={item.name}
                 href={item.href}
+                target={item.href && item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href && item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className={`group w-12 h-12 rounded-xl ${brand.surface} ${brand.border} backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:shadow-lg`}
                 style={{
                   '--hover-color': item.color,
