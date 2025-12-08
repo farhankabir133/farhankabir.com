@@ -199,7 +199,7 @@ const Publications: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+              className="relative group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
               whileHover={{ y: -10 }}
             >
               <div className="relative overflow-hidden w-full h-48 sm:h-56">
@@ -239,16 +239,20 @@ const Publications: React.FC = () => {
                 </p>
 
                 <div className="mt-auto">
-                  <a
-                    href={story.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-amber-500 font-semibold hover:gap-3 transition-all duration-200 text-sm sm:text-base"
-                  >
+                  <div className="inline-flex items-center gap-2 text-amber-500 font-semibold hover:gap-3 transition-all duration-200 text-sm sm:text-base">
                     <span data-cursor="pointer">Read Story</span>
                     <ExternalLink className="w-4 h-4" />
-                  </a>
+                  </div>
                 </div>
+
+                {/* Overlay anchor so the whole publication card is clickable and opens the story in a new tab */}
+                <a
+                  href={story.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${story.title} (opens in new tab)`}
+                  className="absolute inset-0 z-10"
+                />
               </div>
             </motion.article>
             ))

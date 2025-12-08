@@ -218,7 +218,7 @@ const Blog: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+              className="relative group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
               whileHover={{ y: -10 }}
             >
               <div className="relative overflow-hidden w-full h-48 sm:h-56">
@@ -259,19 +259,22 @@ const Blog: React.FC = () => {
                 </p>
 
                 <div className="mt-auto">
-                  <a
-                    href={post.link}
-                    target={post.link.startsWith('http') ? '_blank' : '_self'}
-                    rel={post.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  <motion.div
+                    className="flex items-center gap-2 text-amber-500 font-semibold group-hover:gap-3 transition-all duration-200 text-sm sm:text-base"
                   >
-                    <motion.div
-                      className="flex items-center gap-2 text-amber-500 font-semibold group-hover:gap-3 transition-all duration-200 text-sm sm:text-base"
-                    >
-                      <span data-cursor="pointer">Read More</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.div>
-                  </a>
+                    <span data-cursor="pointer">Read More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.div>
                 </div>
+
+                {/* Overlay anchor so the whole card is clickable and opens the article in a new tab */}
+                <a
+                  href={post.link}
+                  target={post.link.startsWith('http') ? '_blank' : undefined}
+                  rel={post.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={`Open ${post.title} (opens in new tab)`}
+                  className="absolute inset-0 z-10"
+                />
               </div>
             </motion.article>
             ))
