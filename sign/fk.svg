@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Wrapper SVG that embeds the existing PNG signature. This preserves the exact look while providing an SVG file for favicon use. -->
+  <rect width="100%" height="100%" fill="none" />
+  <image href="/sign/fk-sign.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid meet"/>
+</svg>
