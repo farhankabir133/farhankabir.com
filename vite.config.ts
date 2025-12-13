@@ -9,7 +9,11 @@ export default defineConfig({
   // https://<user>.github.io/<repo>/ (example: '/mysite/').
   // If you deploy to a different repo or a user site, adjust this value or
   // override via an environment variable.
-  base: '/mysite/',
+  // Use root base for serving from a custom domain or user/organization site.
+  // Previously set to '/mysite/' for project pages; switch to '/' so
+  // assets are requested from the site root (e.g. '/assets/...') when
+  // using a custom domain like farhankabir.me.
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {

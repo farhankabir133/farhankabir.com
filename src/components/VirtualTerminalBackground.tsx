@@ -81,18 +81,27 @@ const VirtualTerminalWindow: React.FC<{
 
   return (
     <div
-      className="absolute bg-black bg-opacity-70 border border-slate-700 rounded-lg shadow-2xl overflow-hidden animate-fade-in w-80 h-44"
+      className="absolute bg-slate-900/80 dark:bg-black/70 border border-slate-600 dark:border-slate-700 rounded-lg shadow-2xl overflow-hidden animate-fade-in w-80 h-44"
       style={{ ...style, zIndex }}
     >
-      <div className="flex items-center px-3 py-1 bg-slate-800 border-b border-slate-700">
+      <div className="flex items-center px-3 py-1 bg-slate-700 dark:bg-slate-800 border-b border-slate-600 dark:border-slate-700">
         <span className="w-2 h-2 bg-red-500 rounded-full mr-1" />
         <span className="w-2 h-2 bg-yellow-400 rounded-full mr-1" />
         <span className="w-2 h-2 bg-green-500 rounded-full" />
-        <span className="ml-3 text-xs text-slate-400">virtual-terminal</span>
+        <span className="ml-3 text-xs text-slate-300 dark:text-slate-400">virtual-terminal</span>
       </div>
-      <div className="p-3 text-xs font-mono text-green-400 h-[120px] overflow-y-auto">
+      <div className="p-3 text-xs font-mono h-[120px] overflow-y-auto">
         {lines.map((line, i) => (
-          <div key={i} className={line.includes('compiling') ? 'text-yellow-400 animate-pulse' : ''}>
+          <div 
+            key={i} 
+            className={
+              line.includes('compiling') || line.includes('build') 
+                ? 'text-yellow-400 dark:text-yellow-300 animate-pulse' 
+                : i % 2 === 0 
+                  ? 'text-white' 
+                  : 'text-yellow-400 dark:text-yellow-300'
+            }
+          >
             {line}
           </div>
         ))}
@@ -101,7 +110,7 @@ const VirtualTerminalWindow: React.FC<{
             <span>&gt; </span>
             <input
               ref={inputRef}
-              className="bg-transparent outline-none border-none text-green-400 flex-1"
+              className="bg-transparent outline-none border-none text-white flex-1"
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleInput}
@@ -116,7 +125,7 @@ const VirtualTerminalWindow: React.FC<{
           <span className="ml-1">{cursorVisible ? '▮' : ' '}</span>
         )}
       </div>
-      <div className="px-3 py-1 bg-slate-900 text-right text-xs text-slate-500">
+      <div className="px-3 py-1 bg-slate-800 dark:bg-slate-900 text-right text-xs text-slate-300 dark:text-slate-500">
         {isCompiling ? 'Compiling...' : 'Ready'}
       </div>
     </div>
@@ -124,20 +133,21 @@ const VirtualTerminalWindow: React.FC<{
 };
 
 const VirtualTerminalBackground: React.FC = () => {
-  // More random positions for additional terminals
+  // Positioned at edges and corners to avoid overlapping central content
+  // Top-left, top-right, bottom-left, bottom-right, and side positions
   const positions = [
-    { top: 10, left: 30, z: 1 },
-    { top: 90, left: 220, z: 2 },
-    { top: 160, left: 100, z: 3 },
-    { top: 60, left: 400, z: 2 },
-    { top: 120, left: 350, z: 1 },
+    { top: '5%', left: '2%', z: 1 },      // Top-left corner
+    { top: '8%', right: '3%', z: 2 },     // Top-right corner
+    { bottom: '15%', left: '1%', z: 1 },  // Bottom-left
+    { bottom: '20%', right: '2%', z: 2 }, // Bottom-right
+    { top: '45%', left: '1%', z: 1 },     // Middle-left edge
   ];
   return (
-    <div className="absolute inset-0 pointer-events-none select-none z-0">
+    <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
       {positions.map((pos, i) => (
         <VirtualTerminalWindow
           key={i}
-          style={{ top: pos.top, left: pos.left }}
+          style={pos}
           zIndex={pos.z}
           userInput={i === 0}
         />

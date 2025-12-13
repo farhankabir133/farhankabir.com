@@ -11,13 +11,17 @@ const SUPABASE_ANON_KEY = env.VITE_SUPABASE_ANON_KEY as string | undefined;
 
 let supabaseClientInstance: SupabaseClient | null = null;
 
-if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+// Check if the values are actual URLs/keys, not placeholders
+const isValidUrl = SUPABASE_URL && SUPABASE_URL.startsWith('http') && !SUPABASE_URL.includes('your_');
+const isValidKey = SUPABASE_ANON_KEY && SUPABASE_ANON_KEY.length > 50 && !SUPABASE_ANON_KEY.includes('your_');
+
+if (isValidUrl && isValidKey) {
   supabaseClientInstance = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  // eslint-disable-next-line no-console
+   
   console.info('[supabase] client initialized');
 } else {
   // Only warn in development; in production we keep it informational.
-  // eslint-disable-next-line no-console
+   
   if (import.meta.env.DEV) {
     console.warn('[supabase] VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY not set — using noop client');
   } else {
@@ -34,7 +38,16 @@ const noopChain = () => {
     order() {
       return chain;
     },
-    limit: async (_n?: number) => ({ data: [], error: null }),
+    insert() {
+      return chain;
+    },
+    limit: async (_n?: number) => ({ 
+      data: [], 
+      error: { 
+        message: 'Supabase not configured. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.',
+        code: 'SUPABASE_NOT_CONFIGURED'
+      } 
+    }),
   };
   return chain;
 };

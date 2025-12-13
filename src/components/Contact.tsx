@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="contact-section py-16 sm:py-20 md:py-24 dark:bg-slate-800 transition-colors duration-300"
+      className="contact-section pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 md:pb-12 bg-slate-50 dark:bg-slate-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <div className="bg-white dark:bg-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl">
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6">
                 Send me a message
               </h3>
@@ -252,7 +252,7 @@ const Contact: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-slate-700 rounded-xl shadow-lg hover:shadow-xl transition-all group"
+                  className="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg hover:shadow-xl transition-all group"
                   whileHover={{ y: -2 }}
                 >
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -284,7 +284,7 @@ const Contact: React.FC = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transition-all text-slate-600 dark:text-slate-300 hover:text-amber-500"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-slate-900 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transition-all text-slate-600 dark:text-slate-300 hover:text-amber-500"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}

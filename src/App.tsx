@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
+import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -94,6 +95,9 @@ function App() {
 
           {/* Blog Section */}
           <Blog />
+
+          {/* Publications Section */}
+          <Publications />
 
           {/* Contact Section */}
           <Contact />

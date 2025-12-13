@@ -1,127 +1,145 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Portfolio", href: "#portfolio" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Blog", href: "#blog" },
+  { name: "Contact", href: "#contact" },
 ];
-
-const menuVariants = {
-  open: { opacity: 1, y: 0, transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
-  closed: { opacity: 0, y: 50, transition: { when: 'afterChildren' } },
-};
-
-const navItemVariants = {
-  open: { y: 0, opacity: 1, transition: { y: { stiffness: 1000, velocity: -100 } } },
-  closed: { y: 50, opacity: 0, transition: { y: { stiffness: 1000 } } },
-};
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState<string>("Home");
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (href: string, name: string) => {
+    const section = document.querySelector(href);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+    setActive(name);
     setIsOpen(false);
   };
 
+  // Track section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      navItems.forEach((item) => {
+        const section = document.querySelector(item.href);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.4) {
+          setActive(item.name);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      {/* --- Desktop Navbar --- */}
+      {/* 🖥 DESKTOP NAV */}
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, type: 'spring', stiffness: 120, damping: 20 }}
-        className="hidden md:block fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0, y: -24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="hidden md:flex fixed inset-x-0 top-4 z-50 justify-center px-[clamp(12px,4vw,48px)]"
       >
-        <div className="mx-auto max-w-[1280px] flex items-center justify-between p-2 rounded-full border shadow-lg
-                        bg-white/60 border-slate-200/80 backdrop-blur-lg dark:bg-slate-800/60 dark:border-slate-700/70">
-          <div className="text-lg lg:text-xl font-bold tracking-wide bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+        <div
+          className="
+            max-w-[clamp(900px,80vw,1400px)] w-full flex items-center justify-between
+            px-[clamp(16px,3vw,36px)] py-[clamp(8px,2vh,14px)]
+            rounded-full backdrop-blur-xl border 
+            shadow-[0_8px_30px_rgb(0,0,0,0.06)]
+            bg-white/60 dark:bg-slate-900/40
+            border-white/40 dark:border-white/10
+          "
+        >
+          {/* Branding */}
+          <h1 className="font-semibold text-[clamp(1rem,1.6vw,1.25rem)] tracking-wide text-neutral-900 dark:text-neutral-100 cursor-pointer" onClick={() => scrollToSection('#home', 'Home')}>
             Farhan Kabir
-          </div>
-          <div className="flex items-center gap-2 lg:gap-4 flex-nowrap">
+          </h1>
+
+          {/* Nav Items */}
+          <div className="relative flex items-center gap-[clamp(12px,2vw,32px)]">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-slate-800 dark:text-slate-200 hover:text-amber-500 dark:hover:text-amber-400
-                           transition-colors duration-200 font-medium tracking-wide
-                           px-[clamp(8px,1.5vw,16px)] py-[clamp(4px,1vw,8px)]
-                           text-[clamp(0.875rem,2vw,1rem)] lg:text-[clamp(1rem,1.5vw,1.125rem)]
-                           rounded-full focus:outline-none focus:ring-2 focus:ring-amber-400"
-                whileHover={{ y: -2 }}
+                onClick={() => scrollToSection(item.href, item.name)}
+                className="
+                  relative font-medium transition-opacity text-neutral-900 dark:text-neutral-200
+                  text-[clamp(0.8rem,1.2vw,1rem)]
+                "
+                whileHover={{ opacity: 0.6 }}
               >
                 {item.name}
+
+                {/* 🍏 Elastic Active Underline */}
+                {active === item.name && (
+                  <motion.div
+                    layoutId="apple-underline"
+                    className="
+                      absolute left-0 right-0 -bottom-[6px] h-[2px]
+                      bg-neutral-900 dark:bg-neutral-100 rounded-full
+                    "
+                    transition={{
+                      type: "spring",
+                      stiffness: 900,
+                      damping: 22,
+                      mass: 0.3
+                    }}
+                  />
+                )}
               </motion.button>
             ))}
+
             <ThemeToggle />
           </div>
         </div>
       </motion.nav>
 
-      {/* --- Mobile Menu Button --- */}
+      {/* 📱 MOBILE TOGGLE BUTTON */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-[env(safe-area-inset-top,16px)] right-[env(safe-area-inset-right,16px)] z-50
-                   p-[clamp(8px,2vw,12px)] rounded-full shadow-lg bg-white/80 dark:bg-slate-800/80 backdrop-blur-md
-                   focus:outline-none ring-2 ring-amber-400/50"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Toggle menu"
+        className="
+          md:hidden fixed top-4 right-4 z-50 p-[clamp(10px,3vw,14px)]
+          rounded-full bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl
+          border border-white/40 dark:border-white/10 shadow-lg
+        "
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isOpen ? 'x' : 'menu'}
-            initial={{ rotate: 45, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: -45, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {isOpen ? <X className="w-6 h-6 text-slate-800 dark:text-slate-200" /> : <Menu className="w-6 h-6 text-slate-800 dark:text-slate-200" />}
-          </motion.div>
-        </AnimatePresence>
+        {isOpen ? <X size={22} /> : <Menu size={22} />}
       </motion.button>
 
-      {/* --- Mobile Fullscreen Menu --- */}
+      {/* 📱 FULLSCREEN MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 z-40 bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center
-                       max-h-[90vh] overflow-y-auto px-4"
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 flex items-center justify-center
+              bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl"
           >
-            <motion.div className="text-3xl xs:text-4xl font-bold tracking-wide bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent absolute top-16 xs:top-20 text-center">
-              Farhan Kabir
-            </motion.div>
-
-            <motion.ul className="flex flex-col items-center justify-center space-y-2 xs:space-y-4 w-full" variants={menuVariants}>
+            <ul className="flex flex-col items-center gap-[clamp(18px,4vw,32px)]
+                           text-[clamp(1rem,4vw,2rem)]">
               {navItems.map((item) => (
-                <motion.li key={item.name} variants={navItemVariants} className="w-full">
+                <motion.li key={item.name} whileHover={{ scale: 1.05 }}>
                   <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="w-full text-center py-[clamp(12px,3vh,20px)]
-                               text-[clamp(1rem,3vw,1.5rem)] text-slate-700 dark:text-slate-300
-                               hover:text-amber-500 dark:hover:text-amber-400 font-semibold tracking-wider"
+                    onClick={() => scrollToSection(item.href, item.name)}
+                    className="text-neutral-800 dark:text-neutral-200 font-semibold tracking-wide"
                   >
                     {item.name}
                   </button>
                 </motion.li>
               ))}
-            </motion.ul>
-
-            <div className="absolute bottom-[env(safe-area-inset-bottom,32px)]">
               <ThemeToggle />
-            </div>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>

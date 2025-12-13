@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Download } from 'lucide-react';
 import { experiences } from '../data/portfolio';
 
 const About: React.FC = () => {
@@ -17,7 +18,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden py-16 sm:py-20 md:py-24 about-section dark:bg-slate-900 transition-colors duration-300"
+      className="relative overflow-hidden py-16 sm:py-20 md:py-24 about-section bg-slate-50 dark:bg-slate-800 transition-colors duration-300"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -96,15 +97,25 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            {/* Get in Touch Button */}
-            <div className="pt-8">
+            {/* Buttons */}
+            <div className="pt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
                 onClick={handleGetInTouchClick}
-                className="inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center"
               >
                 Get In Touch
               </a>
+              <motion.a
+                href="/Resume_of_FK.pdf"
+                download
+                className="group inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-amber-500 text-amber-600 dark:border-amber-400 dark:text-amber-400 rounded-lg hover:bg-amber-500 hover:border-amber-500 hover:text-white dark:hover:bg-amber-400 dark:hover:text-slate-900 transition-all duration-300 cursor-pointer font-bold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/50 dark:shadow-amber-400/30 dark:hover:shadow-amber-400/50 transform hover:-translate-y-1 bg-amber-50/50 dark:bg-transparent"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Download className="w-5 h-5" />
+                Download Resume
+              </motion.a>
             </div>
           </motion.div>
         </div>
@@ -135,10 +146,10 @@ const About: React.FC = () => {
               >
                 <div className="md:flex items-center">
                   <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:order-2'}`}>
-                    <div className="bg-white dark:bg-slate-800 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ml-10 md:ml-0">
+                    <div className={`bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ml-10 md:ml-0 border border-slate-100 ${index % 2 === 0 ? 'dark:bg-slate-700 dark:border-slate-600' : 'dark:bg-slate-900 dark:border-slate-700'}`}>
                       <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                        {exp.current && <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Current</span>}
-                        <span className="text-amber-500 font-semibold text-sm sm:text-base">{exp.period}</span>
+                        {exp.current && <span className="px-2 py-1 bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-xs font-semibold rounded-full">Current</span>}
+                        <span className="text-amber-500 dark:text-amber-400 font-semibold text-sm sm:text-base">{exp.period}</span>
                       </div>
                       <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-1">{exp.title}</h4>
                       <p className="text-amber-600 dark:text-amber-400 font-semibold mb-3 text-sm sm:text-base">{exp.company}</p>

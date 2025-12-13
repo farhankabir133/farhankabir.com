@@ -89,6 +89,116 @@ export const projects: Project[] = [
     technologies: ['Figma', 'Adobe XD', 'Principle'],
     featured: false
   }
+  ,
+  // --- Added portfolio projects extracted from repository analysis ---
+  {
+    id: 'altmail',
+    title: 'AltMail (Alter_Mail)',
+    description: 'Theme: Privacy Mail — Disposable email service for anonymous email generation',
+    longDescription: 'AltMail is a privacy-first disposable email service built to generate anonymous inboxes quickly. Key features include spam protection, ephemeral inboxes, and OAuth-based optional authentication.',
+  image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Vite', 'Node.js', 'Express', 'Firebase'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/Alter_Mail',
+    featured: true
+  },
+  {
+    id: 'fk-portfolio',
+    title: 'FK Portfolio (fk)',
+    description: 'Theme: Personal Showcase — Personal portfolio and showcase site (repo may be private)',
+    longDescription: 'A personal portfolio project showcasing work, publications, and an integrated AI assistant. Repository access may be restricted/private.',
+  image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/fk',
+    featured: false
+  },
+  {
+    id: 'fkhub',
+    title: 'FK Hub (fkhub)',
+    description: 'Theme: AI Assistant — Next-generation AI assistant chatbot integrated with portfolio',
+    longDescription: 'FK Hub integrates an AI chatbot, Web3 wallet support, voice chat, and analytics. Built with Supabase backend, OpenAI/Gemini integrations, and real-time features.',
+  image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Supabase', 'OpenAI', 'Wagmi', 'Viem'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/fkhub',
+    featured: true
+  },
+  {
+    id: 'farhansite',
+    title: 'farhankabir.com',
+    description: 'Theme: Personal AI Portfolio — Personal portfolio with integrated AI assistant and Web3 features',
+    longDescription: 'The live personal site featuring an AI chatbot, blog, portfolio, and Web3 integrations. Built with React, TypeScript, Tailwind and hosted via GitHub Pages / Firebase assets.',
+  image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'Firebase'],
+    liveUrl: 'https://farhankabir.com',
+    githubUrl: 'https://github.com/farhankabir133/farhankabir.com',
+    featured: true
+  },
+  {
+    id: 'interactiq',
+    title: 'InteractIQ',
+    description: 'Theme: Social Automator — AI-powered social media automation assistant',
+    longDescription: 'InteractIQ automates social interactions and content workflows using Google GenAI and integration with social APIs, analytics and visualizations.',
+  image: 'https://images.pexels.com/photos/35186747/pexels-photo-35186747.png?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Google GenAI', 'Recharts', 'Framer Motion'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/InteractIQ',
+    featured: false
+  },
+  {
+    id: 'frncovi',
+    title: 'frncovi.com',
+    description: 'Theme: Civic iGov — Public sector / civic tech project for government workflows',
+    longDescription: 'frncovi.com is a civic-tech project focused on improving government services and public engagement with automation and modern UX.',
+  image: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/frncovi',
+    featured: false
+  },
+  {
+    id: 'emotion-detection',
+    title: 'Emotion Detection',
+    description: 'Theme: Affective AI — Emotion detection from textual and multimodal inputs',
+    longDescription: 'Emotion Detection project uses NLP and ML techniques to extract emotional signals from text (and optional multimodal inputs). Includes experiments, model training, and visualization dashboards.',
+  image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'Express', 'Drizzle ORM', 'Neon'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/Emotion-Detection',
+    featured: true
+  },
+  {
+    id: 'f-kabir',
+    title: 'f. kabir',
+    description: 'Theme: Refined Portfolio — Updated personal site with curated content',
+    longDescription: 'A refined personal website iteration focusing on clear presentation, fast performance and improved content organization.',
+  image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/f.kabir',
+    featured: false
+  },
+  {
+    id: 'the-ink-home',
+    title: 'The Ink Home',
+    description: 'Theme: Literary Platform — Modern publication site for essays and stories',
+    longDescription: 'The Ink Home is a Medium-style platform for creative essays and storytelling, featuring GSAP/Pixi.js powered animations, offline-ready article pages, and a lightweight CMS for authors.',
+  image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&h=900&q=80',
+  category: 'Web Development',
+    technologies: ['React', 'TypeScript', 'GSAP', 'Pixi.js', 'Tailwind CSS'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/The-Ink-Home',
+    featured: true
+  }
 ];
 
 export const skills: Skill[] = [

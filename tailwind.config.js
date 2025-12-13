@@ -4,6 +4,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Merriweather', 'serif'],
+        serif: ['Merriweather', 'serif'],
+      },
       screens: {
         'fold': '280px', // For very narrow screens like folded devices
         'xs': '480px',   // Extra small devices
