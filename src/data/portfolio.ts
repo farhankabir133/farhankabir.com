@@ -120,7 +120,7 @@ export const projects: Project[] = [
     title: 'FK Hub (fkhub)',
     description: 'Theme: AI Assistant — Next-generation AI assistant chatbot integrated with portfolio',
     longDescription: 'FK Hub integrates an AI chatbot, Web3 wallet support, voice chat, and analytics. Built with Supabase backend, OpenAI/Gemini integrations, and real-time features.',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=800&q=80',
+    image: '/projects/fkhub.svg',
     category: 'AI / Web App',
     technologies: ['React', 'TypeScript', 'Supabase', 'OpenAI', 'Wagmi', 'Viem'],
     liveUrl: '',
@@ -144,11 +144,23 @@ export const projects: Project[] = [
     title: 'InteractIQ',
     description: 'Theme: Social Automator — AI-powered social media automation assistant',
     longDescription: 'InteractIQ automates social interactions and content workflows using Google GenAI and integration with social APIs, analytics and visualizations.',
-    image: 'https://images.unsplash.com/photo-1508385082359-f2b5f9f6b1cf?auto=format&fit=crop&w=800&q=80',
+    image: '/projects/interact-igov.svg',
     category: 'AI / Social',
     technologies: ['React', 'TypeScript', 'Google GenAI', 'Recharts', 'Framer Motion'],
     liveUrl: '',
     githubUrl: 'https://github.com/farhankabir133/InteractIQ',
+    featured: false
+  },
+  {
+    id: 'frncovi',
+    title: 'frncovi.com',
+    description: 'Theme: Civic iGov — Public sector / civic tech project for government workflows',
+    longDescription: 'frncovi.com is a civic-tech project focused on improving government services and public engagement with automation and modern UX.',
+    image: '/projects/frncovi.svg',
+    category: 'Civic Tech',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/farhankabir133/frncovi',
     featured: false
   },
   {
