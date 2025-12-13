@@ -13,9 +13,10 @@ const Hero: React.FC = () => {
   // Typewriter animation state
   const jobRoles = [
     'Software Engineer',
-    'Full-Stack Developer',
-    'Researcher',
-    'AI Enthusiast'
+    'AI Engineer',
+    'ML-NLP Researcher',
+    'Full Stack Developer',
+    'Prompt Specialist'
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');

@@ -22,10 +22,7 @@ export const getGeminiResponse = async (messages: any[]) => {
     const response = await apiClient.post('/getGeminiResponse', { message: lastMessage.content });
     return response.data;
   } catch (error) {
-    // Only log errors in development
-    if (import.meta.env.DEV) {
-      console.error("Error sending message to chatbot:", error);
-    }
+    console.error("Error sending message to chatbot:", error);
     throw error;
   }
 };
