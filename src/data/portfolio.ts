@@ -144,7 +144,7 @@ export const projects: Project[] = [
     title: 'InteractIQ',
     description: 'Theme: Social Automator — AI-powered social media automation assistant',
     longDescription: 'InteractIQ automates social interactions and content workflows using Google GenAI and integration with social APIs, analytics and visualizations.',
-     image: 'https://images.pexels.com/photos/35186747/pexels-photo-35186747.png',
+  image: 'https://images.pexels.com/photos/35186747/pexels-photo-35186747.png?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
   category: 'Web Development',
     technologies: ['React', 'TypeScript', 'Google GenAI', 'Recharts', 'Framer Motion'],
     liveUrl: '',
