@@ -203,6 +203,7 @@ export const skills: Skill[] = [
   { name: 'Figma', level: 90, category: 'creative', icon: '🔧' },
   { name: 'Adobe Creative Suite', level: 85, category: 'creative', icon: '🎭' },
   { name: 'Motion Graphics', level: 78, category: 'creative', icon: '🎬' },
+  { name: 'Writing', level: 88, category: 'creative', icon: '✍️' },
   { name: 'Leadership', level: 88, category: 'soft', icon: '👑' },
   { name: 'Communication', level: 92, category: 'soft', icon: '💬' },
   { name: 'Problem Solving', level: 95, category: 'soft', icon: '🧩' },
