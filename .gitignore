@@ -3,3 +3,6 @@ node_modules
 .env.*
 .env
 .env.production
+
+# Don't commit build artifacts
+dist/
