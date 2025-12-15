@@ -91,7 +91,7 @@ const Portfolio: React.FC = () => {
                 whileHover={{ y: -10 }}
               >
                 <div className="relative overflow-hidden aspect-w-16 aspect-h-9">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute inset-0 flex flex-col justify-end p-4">
                     {/* Always show on small (touch) devices; hide on hover-only sizes until hovered */}
@@ -127,7 +127,7 @@ const Portfolio: React.FC = () => {
                   return (
                     <div>
                       <div className="relative aspect-w-16 aspect-h-9">
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-2xl" />
+                        <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover rounded-t-2xl" />
                         <button onClick={() => setSelectedProject(null)} className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors duration-200" data-cursor="pointer" aria-label="Close modal"><X size={20}/></button>
                       </div>
                       <div className="p-4 sm:p-6 md:p-8">

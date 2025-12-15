@@ -73,6 +73,7 @@ const Testimonials: React.FC = () => {
                   <img
                     src={testimonials[currentIndex].avatar}
                     alt={testimonials[currentIndex].name}
+                    loading="lazy"
                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-amber-400 shadow-sm"
                   />
                   <div>
@@ -144,6 +145,7 @@ const Testimonials: React.FC = () => {
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
+                  loading="lazy"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
