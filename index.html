@@ -2,10 +2,29 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-  <!-- Custom signature favicon (user-provided SVG) -->
-  <link rel="icon" type="image/svg+xml" href="/sign/fkabir.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farhan Kabir</title>
+    <!-- Primary SEO -->
+    <title>Farhan Kabir — Designer, Developer & Writer</title>
+    <meta name="description" content="Farhan Kabir — portfolio and blog showcasing web development, design, AI projects, and writing. Explore projects, articles, and contact information." />
+    <meta name="keywords" content="Farhan Kabir, web developer, UI/UX, AI, portfolio, writing, React, TypeScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/sign/fkabir.svg" />
+
+    <!-- Social / Open Graph -->
+    <meta property="og:site_name" content="Farhan Kabir" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Farhan Kabir — Designer, Developer & Writer" />
+    <meta property="og:description" content="Portfolio and blog showcasing web development, design, AI projects, and writing by Farhan Kabir." />
+    <meta property="og:url" content="https://farhankabir.com" />
+    <meta property="og:image" content="https://images.pexels.com/photos/1496311/pexels-photo-1496311.jpeg?auto=compress&fit=crop&w=1200&h=630&q=80" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@farhankabir" />
+    <meta name="twitter:creator" content="@farhankabir" />
+    <meta name="twitter:title" content="Farhan Kabir — Designer, Developer & Writer" />
+    <meta name="twitter:description" content="Portfolio and blog showcasing web development, design, AI projects, and writing by Farhan Kabir." />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/1496311/pexels-photo-1496311.jpeg?auto=compress&fit=crop&w=1200&h=630&q=80" />
+
     <!-- Prevent flash of light mode on first load -->
     <script>
       (function() {
@@ -18,12 +37,73 @@
         }
       })();
     </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://farhankabir.com#person",
+          "name": "Farhan Kabir",
+          "url": "https://farhankabir.com",
+          "sameAs": [
+            "https://github.com/farhankabir133",
+            "https://www.linkedin.com/in/farhankabir",
+            "https://twitter.com/farhankabir"
+          ],
+          "jobTitle": "Full Stack Developer",
+          "image": "https://images.pexels.com/photos/1496311/pexels-photo-1496311.jpeg?auto=compress&fit=crop&w=400&h=400&q=80",
+          "description": "Designer, developer and writer focused on web apps, AI integrations and creative systems."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://farhankabir.com#website",
+          "url": "https://farhankabir.com",
+          "name": "Farhan Kabir",
+          "publisher": { "@id": "https://farhankabir.com#person" }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <header aria-label="Primary header">
+      <!-- Minimal accessible header; React will hydrate into #root -->
+      <nav aria-label="Primary navigation" role="navigation">
+        <!-- Navigation is rendered by the app -->
+      </nav>
+    </header>
+
+    <main id="root" role="main" aria-live="polite">
+      <!-- React mounts the application here -->
+      <noscript>
+        <article>
+          <h1>Farhan Kabir</h1>
+          <p>This site requires JavaScript to render the full experience. Please enable JavaScript or view the source for contact details and project links.</p>
+        </article>
+      </noscript>
+    </main>
+
+    <footer aria-label="Site footer">
+      <p>
+        &copy; <span id="current-year">2025</span> Farhan Kabir — <a href="/" aria-label="Homepage">Home</a>
+      </p>
+    </footer>
+
+    <script>
+      // Set current year for footer accessibility
+      (function(){
+        try{ document.getElementById('current-year').textContent = new Date().getFullYear(); } catch(e){}
+      })();
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
