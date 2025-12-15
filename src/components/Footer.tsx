@@ -9,6 +9,7 @@ import {
   SiMedium,
   SiGravatar,
   SiGithub,
+  SiGumroad,
   SiX,
 } from "react-icons/si";
 import { supabase } from '../lib/supabase';
@@ -32,6 +33,7 @@ const socials = [
   { name: "Medium", icon: SiMedium, href: "https://medium.com/@farhankabir133", color: "#12100E" },
   { name: "X", icon: SiX, href: "https://x.com/fkh_236", color: "#000000" },
   { name: "Gravatar", icon: SiGravatar, href: "https://gravatar.com/fk133", color: "#1E8CBE" },
+  { name: "Gumroad", icon: SiGumroad, href: "https://fk133.gumroad.com/", color: "#FF7A00" },
   { name: "ORCID", icon: SiOrcid, href: "#", color: "#A6CE39" },
 ];
 
