@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Mail, X, Download } from 'lucide-react';
+import { ChevronDown, Mail, X } from 'lucide-react';
 import GravityCodeOrbsBackground from './GravityCodeOrbsBackground';
 import { supabase } from '../lib/supabase';
 
@@ -202,16 +202,6 @@ const Hero: React.FC = () => {
             <Mail className="w-5 h-5" />
             <span>Subscribe To My Newsletter</span>
           </motion.button>
-          <motion.a
-            href="/Resume.pdf"
-            download="Resume_Farhan_Kabir.pdf"
-            className="group flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border-2 border-emerald-500 text-emerald-400 rounded-full hover:bg-emerald-500 hover:border-emerald-500 hover:text-white transition-all duration-300 cursor-pointer font-bold shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/50 transform hover:-translate-y-1 bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download className="w-5 h-5" />
-            <span>Download Resume</span>
-          </motion.a>
           <motion.button
             onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-full overflow-hidden shadow-lg cursor-pointer font-bold"
