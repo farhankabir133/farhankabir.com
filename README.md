@@ -250,7 +250,7 @@ MIT — see [LICENSE](LICENSE)
 
 If you found this project helpful, please consider:
 
-[![Star on GitHub](https://img.shields.io/github/stars/farhankabir133/fk?style=social)](https://github.com/farhankabir133/fk)
+[![Star on GitHub](https://img.shields.io/github/stars/farhankabir133/farhankabir.com?style=social)](https://github.com/farhankabir133/farhankabir.com)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/farhankabir133?style=social)](https://twitter.com/farhankabir133)
 [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=social&logo=linkedin)](https://linkedin.com/in/farhankabir133)
 
@@ -262,11 +262,15 @@ If you found this project helpful, please consider:
 
 </div>
 
+---
 
-###Important Build Commands for production
+## Important Build Commands for Production
+
+```bash
 rm -rf dist
 npm run build
 firebase deploy --only hosting
+```
 
 
 
