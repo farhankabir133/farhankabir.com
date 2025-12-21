@@ -108,7 +108,7 @@ const About: React.FC = () => {
                 Get In Touch
               </a>
               <motion.a
-                href="/Resume.pdf"
+                href="/Resume_final.pdf"
                 download="Resume_Farhan_Kabir.pdf"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-amber-500 text-amber-600 dark:border-amber-400 dark:text-amber-400 rounded-lg hover:bg-amber-500 hover:border-amber-500 hover:text-white dark:hover:bg-amber-400 dark:hover:text-slate-900 transition-all duration-300 cursor-pointer font-bold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/50 dark:shadow-amber-400/30 dark:hover:shadow-amber-400/50 transform hover:-translate-y-1 bg-amber-50/50 dark:bg-transparent"
                 whileHover={{ scale: 1.02 }}
