@@ -52,8 +52,8 @@
       .min-h-\[100svh\]{min-height:100svh;min-height:100vh}
       /* Prevent layout shift from custom cursor */
       @media(hover:hover){body{cursor:none}}
-      /* Hero section critical styles */
-      .section-container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem}
+      /* Full width sections - no max-width constraint on main container */
+      .section-container{width:100%}
       /* Font loading fallback */
       .fonts-loading body{font-family:Georgia,serif}
       .fonts-loaded body{font-family:'Merriweather',Georgia,serif}
@@ -71,6 +71,16 @@
         }
         // Add fonts-loading class for FOUT prevention
         document.documentElement.classList.add('fonts-loading');
+        
+        // Handle GitHub Pages SPA redirect
+        const redirect = sessionStorage.getItem('gh-pages-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('gh-pages-redirect');
+          // Use history API to restore the original URL
+          if (redirect !== '/' && redirect !== window.location.pathname) {
+            history.replaceState(null, '', redirect);
+          }
+        }
       })();
     </script>
 
@@ -135,12 +145,12 @@
     <meta name="author" content="Farhan Kabir" />
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <script type="module" crossorigin src="/assets/index-CPs1dm22.js"></script>
+    <script type="module" crossorigin src="/assets/index-CG-tQhEB.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-dom-DRxtf2z3.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-BU9OzvmW.js">
     <link rel="modulepreload" crossorigin href="/assets/framer-motion-BUhHu_zL.js">
     <link rel="modulepreload" crossorigin href="/assets/tanstack-DdzZOvez.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DRgTGQZh.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-yPICv2NE.css">
   </head>
   <body>
     <header aria-label="Primary header">
