@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Mail, X } from 'lucide-react';
-import GravityCodeOrbsBackground from './GravityCodeOrbsBackground';
+import useMediaQuery from '../hooks/useMediaQuery';
+const GravityCodeOrbsBackground = lazy(() => import('./GravityCodeOrbsBackground'));
 import { supabase } from '../lib/supabase';
 
 const Hero: React.FC = () => {
@@ -127,9 +128,16 @@ const Hero: React.FC = () => {
     }
   };
 
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
   return (
   <section id="home" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black full-vh">
-      <GravityCodeOrbsBackground />
+      {/* Render animated orb background only on desktop; skip entirely on mobile for performance */}
+      {!isMobile && (
+        <Suspense fallback={null}>
+          <GravityCodeOrbsBackground />
+        </Suspense>
+      )}
   <div className="relative z-30 flex flex-col items-center justify-center w-full h-full pt-20 sm:pt-32 pb-16 px-4">
         <motion.div
           className="mb-2 relative z-20"
@@ -297,6 +305,7 @@ const Hero: React.FC = () => {
               {/* Close Button */}
               <button
                 onClick={() => setShowNewsletterModal(false)}
+                aria-label="Close newsletter modal"
                 className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
               >
                 <X className="w-6 h-6" />

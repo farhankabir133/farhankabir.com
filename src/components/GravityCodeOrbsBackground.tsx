@@ -344,12 +344,12 @@ const GravityCodeOrbsBackground: React.FC = () => {
         width={800}
         height={400}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-90 pointer-events-auto"
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 10 }}
       />
       {/* Customization UI for first orb and speed */}
 {/* Customization UI for first orb and speed */}
-<div className="absolute top-4 left-4 rounded-xl p-3 md:p-4 z-20 flex flex-col gap-3 
-  bg-white/70 text-gray-900 shadow-lg backdrop-blur-md 
+<div className="absolute top-4 left-4 rounded-xl p-3 md:p-4 z-40 flex flex-col gap-3 
+  bg-white/70 text-gray-900 shadow-lg backdrop-blur-md pointer-events-auto
   dark:bg-black/70 dark:text-white md:min-w-[240px]">
 
   <div className="font-bold mb-1 hidden md:block">Customize Main Orb</div>

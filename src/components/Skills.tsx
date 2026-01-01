@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../data/portfolio';
-import VirtualTerminalBackground from './VirtualTerminalBackground';
+import useMediaQuery from '../hooks/useMediaQuery';
+const VirtualTerminalBackground = lazy(() => import('./VirtualTerminalBackground'));
 
 const Skills: React.FC = () => {
   const [ref, inView] = useInView({
@@ -11,6 +12,7 @@ const Skills: React.FC = () => {
   });
 
   const [activeCategory, setActiveCategory] = useState<'technical' | 'creative' | 'soft'>('technical');
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
   const categories = [
     { key: 'technical' as const, label: 'Technical Skills', color: 'from-blue-500 to-cyan-500' },
@@ -22,10 +24,14 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="relative py-16 sm:py-20 md:py-24 skill-section bg-white dark:bg-slate-900 transition-colors duration-300 overflow-hidden">
-      {/* Virtual Terminal Animated Background - Hidden on smaller screens */}
-      <div className="hidden md:block">
-        <VirtualTerminalBackground />
-      </div>
+      {/* Virtual Terminal Animated Background - lazy loaded and not downloaded on mobile */}
+      {!isMobile && (
+        <div className="hidden md:block">
+          <Suspense fallback={null}>
+            <VirtualTerminalBackground />
+          </Suspense>
+        </div>
+      )}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

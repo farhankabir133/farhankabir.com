@@ -2,8 +2,55 @@
 /* GUMROAD-STYLE TYPOGRAPHY + TAILWIND .DARK INTEGRATION */
 /* ======================================================= */
 
-/* Import fonts */
+/* 
+ * NOTE: Fonts are now loaded via index.html with proper preloading
+ * and async loading for better performance. The @import below is 
+ * kept as a fallback but the HTML link tags take precedence.
+ * 
+ * Font loading optimizations applied:
+ * - Preconnect to Google Fonts origins
+ * - Preload critical font weights (400, 700)
+ * - font-display: swap ensures text is visible during font load
+ * - Async font loading via media="print" onload technique
+ */
+
+/* Fallback font import (lower priority than HTML preloaded fonts) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+/* ======================================================= */
+/* FONT-FACE FALLBACK WITH FONT-DISPLAY: SWAP */
+/* These ensure text remains visible during web font loading */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Merriweather Bold'), local('Merriweather-Bold');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Inter Regular'), local('Inter-Regular');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Inter Medium'), local('Inter-Medium');
+}
 
 /* ======================================================= */
 /* LIGHT/DARK COLOR VARIABLES */

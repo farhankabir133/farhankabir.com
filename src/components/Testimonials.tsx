@@ -74,6 +74,8 @@ const Testimonials: React.FC = () => {
                     src={testimonials[currentIndex].avatar}
                     alt={testimonials[currentIndex].name}
                     loading="lazy"
+                    width={64}
+                    height={64}
                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-amber-400 shadow-sm"
                   />
                   <div>
@@ -100,8 +102,8 @@ const Testimonials: React.FC = () => {
           </motion.div>
 
           <div className="flex sm:hidden justify-center gap-4 mt-8">
-            <motion.button onClick={prevTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg" whileTap={{ scale: 0.95 }} data-cursor="pointer"><ChevronLeft className="w-6 h-6" /></motion.button>
-            <motion.button onClick={nextTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg" whileTap={{ scale: 0.95 }} data-cursor="pointer"><ChevronRight className="w-6 h-6" /></motion.button>
+            <motion.button onClick={prevTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg" whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Previous testimonial"><ChevronLeft className="w-6 h-6" /></motion.button>
+            <motion.button onClick={nextTestimonial} className="p-3 bg-white dark:bg-slate-700 rounded-full shadow-lg" whileTap={{ scale: 0.95 }} data-cursor="pointer" aria-label="Next testimonial"><ChevronRight className="w-6 h-6" /></motion.button>
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
@@ -146,6 +148,8 @@ const Testimonials: React.FC = () => {
                   src={testimonial.avatar}
                   alt={testimonial.name}
                   loading="lazy"
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>

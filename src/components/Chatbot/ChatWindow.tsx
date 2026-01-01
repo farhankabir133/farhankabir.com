@@ -263,6 +263,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, onClose }) => {
               <button
                 onClick={() => setIsSpeakingEnabled(prev => !prev)}
                 aria-pressed={isSpeakingEnabled}
+                aria-label={isSpeakingEnabled ? "Disable spoken responses" : "Enable spoken responses"}
                 title="Toggle Speak Responses"
                 className={`p-2 rounded-lg transition-colors ${
                   isSpeakingEnabled
@@ -279,6 +280,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, onClose }) => {
 
               <button
                 onClick={() => setIsMinimized(prev => !prev)}
+                aria-label={isMinimized ? "Maximize chat window" : "Minimize chat window"}
                 title={isMinimized ? "Maximize" : "Minimize"}
                 className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:hover:bg-slate-700"
               >
@@ -291,6 +293,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, onClose }) => {
 
               <button
                 onClick={onClose}
+                aria-label="Close chat"
                 title="Close chat"
                 className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:hover:bg-slate-700"
               >
@@ -407,6 +410,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, onClose }) => {
 
                 <button
                   onClick={handleVoiceInput}
+                  aria-label={isListening ? "Stop voice input" : "Start voice input"}
                   className={`p-3 rounded-xl border ${
                     isListening
                       ? "bg-red-500 text-white"
@@ -423,6 +427,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, onClose }) => {
 
                 <button
                   onClick={() => handleSendMessage()}
+                  aria-label="Send message"
                   className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition"
                   title="Send message"
                 >

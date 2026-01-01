@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farhan Kabir — Developer, AI Engineer, Designer & Writer</title>
+  <script>
+    // Single Page App redirect for GitHub Pages
+    // This script redirects all 404s to index.html while preserving the path
+    // so the React Router can handle the routing client-side
+    const path = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    
+    // Store the path in sessionStorage so we can restore it after redirect
+    sessionStorage.setItem('gh-pages-redirect', path + search + hash);
+    
+    // Redirect to home
+    window.location.replace('/');
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

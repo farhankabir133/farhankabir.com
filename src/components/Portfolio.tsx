@@ -91,13 +91,13 @@ const Portfolio: React.FC = () => {
                 whileHover={{ y: -10 }}
               >
                 <div className="relative overflow-hidden aspect-w-16 aspect-h-9">
-                  <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={project.image} alt={project.title} loading="lazy" width={800} height={450} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute inset-0 flex flex-col justify-end p-4">
                     {/* Always show on small (touch) devices; hide on hover-only sizes until hovered */}
                     <div className="flex gap-2 mb-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                      {project.liveUrl && <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-200" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer"><ExternalLink className="w-4 h-4" /></motion.a>}
-                      {project.githubUrl && <motion.a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-200" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer"><Github className="w-4 h-4" /></motion.a>}
+                      {project.liveUrl && <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-200" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer"><ExternalLink className="w-4 h-4" /></motion.a>}
+                      {project.githubUrl && <motion.a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`View GitHub repository for ${project.title}`} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-200" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} data-cursor="pointer"><Github className="w-4 h-4" /></motion.a>}
                     </div>
                   </div>
                   {project.featured && <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs sm:text-sm rounded-full">Featured</span></div>}
@@ -127,7 +127,7 @@ const Portfolio: React.FC = () => {
                   return (
                     <div>
                       <div className="relative aspect-w-16 aspect-h-9">
-                        <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover rounded-t-2xl" />
+                        <img src={project.image} alt={project.title} loading="lazy" width={800} height={450} className="w-full h-full object-cover rounded-t-2xl" />
                         <button onClick={() => setSelectedProject(null)} className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors duration-200" data-cursor="pointer" aria-label="Close modal"><X size={20}/></button>
                       </div>
                       <div className="p-4 sm:p-6 md:p-8">

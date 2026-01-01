@@ -107,6 +107,7 @@ const Navigation: React.FC = () => {
       {/* 📱 MOBILE TOGGLE BUTTON */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         className="
           md:hidden fixed top-4 right-4 z-50 p-[clamp(10px,3vw,14px)]
           rounded-full bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl

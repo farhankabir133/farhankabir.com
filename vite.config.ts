@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
+import compression from 'vite-plugin-compression';
+
+// Check if we're running bundle analysis
+const isAnalyze = process.env.ANALYZE === 'true';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,7 +19,28 @@ export default defineConfig({
   // assets are requested from the site root (e.g. '/assets/...') when
   // using a custom domain like farhankabir.me.
   base: '/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    // Gzip compression for production builds
+    compression({
+      algorithm: 'gzip',
+      ext: '.gz',
+      threshold: 1024, // Only compress files > 1KB
+    }),
+    // Brotli compression (better than gzip, widely supported)
+    compression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      threshold: 1024,
+    }),
+    // Bundle analyzer - only when ANALYZE=true
+    ...(isAnalyze ? [visualizer({
+      filename: 'dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    })] : []),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -28,8 +54,34 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   build: {
+    // Enable minification with terser for better compression
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.log in production
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+      },
+      mangle: true,
+      format: {
+        comments: false, // Remove comments
+      },
+    },
+    // Enable CSS code splitting and minification
+    cssCodeSplit: true,
+    cssMinify: true,
+    // Generate source maps for debugging (can be disabled for smaller builds)
+    sourcemap: false,
+    // Set chunk size warning limit (KB)
+    chunkSizeWarningLimit: 500,
+    // Asset inlining threshold (4KB)
+    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
+        // Optimize chunk naming for better caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
         // Bundle all node_modules into a single vendor chunk. This reduces the
         // chance of cross-chunk circular imports triggering "Cannot access
         // '<id>' before initialization" at runtime. If you later need fine-
@@ -38,10 +90,40 @@ export default defineConfig({
         manualChunks(id) {
           if (!id) return;
           if (id.includes('node_modules')) {
+            // Split large libraries into separate chunks for better caching
+            if (id.includes('framer-motion')) {
+              return 'framer-motion';
+            }
+            if (id.includes('firebase')) {
+              return 'firebase';
+            }
+            if (id.includes('@tanstack')) {
+              return 'tanstack';
+            }
+            if (id.includes('react-dom')) {
+              return 'react-dom';
+            }
+            // Group remaining vendor code
             return 'vendor';
           }
         },
       },
+    },
+    // Enable reporting for bundle analysis
+    reportCompressedSize: true,
+  },
+  // Optimize server performance
+  server: {
+    // Enable HTTP/2 for development
+    headers: {
+      'Cache-Control': 'no-store',
+    },
+  },
+  // Preview server configuration (for `vite preview`)
+  preview: {
+    headers: {
+      // Add caching headers for preview
+      'Cache-Control': 'public, max-age=31536000, immutable',
     },
   },
 });

@@ -35,15 +35,10 @@ img, picture, video, canvas, svg {
 	display: block;
 }
 
-/* Utility container used by main content (keeps layout centered and padded)
-	 Uses a fluid width with a comfortable max to prevent overflow on large screens */
+/* Utility container used by main content - FULL WIDTH for sections
+   Individual sections handle their own max-width constraints internally */
 .section-container {
 	width: 100%;
-	max-width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 1rem;
-	padding-right: 1rem;
 }
 
 /* Chatbot container: bottom-right anchored on large screens, smaller and

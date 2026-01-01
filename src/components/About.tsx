@@ -49,9 +49,11 @@ const About: React.FC = () => {
                 transition={{ duration: 10, repeat: Infinity, repeatType: 'mirror' }}
               />
               <img
-                src="https://images.pexels.com/photos/34100614/pexels-photo-34100614.png"
+                src="https://images.pexels.com/photos/34100614/pexels-photo-34100614.png?auto=compress&cs=tinysrgb&w=600&fm=webp"
                 alt="Farhan Kabir"
                 loading="lazy"
+                width={600}
+                height={600}
                 className="relative w-full h-auto object-cover rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300"
               />
               <motion.div

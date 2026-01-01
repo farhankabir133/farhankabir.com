@@ -9,29 +9,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/sign/fkabir.svg" />
 
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://images.pexels.com" />
+
     <!-- Social / Open Graph (Works across all platforms: Facebook, LinkedIn, X/Twitter, WhatsApp, Discord, Slack, Google, etc.) -->
     <meta property="og:site_name" content="Farhan Kabir" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Farhan Kabir — Developer, AI Engineer, Designer & Writer" />
     <meta property="og:description" content="Portfolio and blog showcasing web development, design, AI projects, and writing by Farhan Kabir." />
     <meta property="og:url" content="https://farhankabir.me" />
-    <!-- Primary: Square image for most platforms (X/Twitter, Facebook, Discord, etc.) -->
-    <meta property="og:image" content="https://images.pexels.com/photos/35383997/pexels-photo-35383997.png" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="2400" />
-    <meta property="og:image:height" content="2400" />
+    <!-- Primary: Square image for most platforms (X/Twitter, Facebook, Discord, etc.) - WebP optimized -->
+    <meta property="og:image" content="https://images.pexels.com/photos/35383997/pexels-photo-35383997.png?auto=compress&cs=tinysrgb&w=1200&fm=webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
     <meta property="og:image:alt" content="Farhan Kabir - Developer, AI Engineer, Designer & Writer" />
     <!-- Secure URL for HTTPS -->
-    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/35383997/pexels-photo-35383997.png" />
-    <!-- LinkedIn-optimized cover image (3200x2000 prevents face cropping) -->
-    <meta property="og:image" content="https://images.pexels.com/photos/35388535/pexels-photo-35388535.png" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="3200" />
-    <meta property="og:image:height" content="2000" />
+    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/35383997/pexels-photo-35383997.png?auto=compress&cs=tinysrgb&w=1200&fm=webp" />
+    <!-- LinkedIn-optimized cover image (WebP optimized) -->
+    <meta property="og:image" content="https://images.pexels.com/photos/35388535/pexels-photo-35388535.png?auto=compress&cs=tinysrgb&w=1600&fm=webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1000" />
     <meta property="og:image:alt" content="Farhan Kabir - Developer, AI Engineer, Designer & Writer" />
-    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/35388535/pexels-photo-35388535.png" />
+    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/35388535/pexels-photo-35388535.png?auto=compress&cs=tinysrgb&w=1600&fm=webp" />
     <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://farhankabir.me" />
+    <link rel="canonical" href="https://farhankabir.me" />
+
+    <!-- Critical CSS - Inlined for above-the-fold content -->
+    <style>
+      /* Critical CSS for initial render - prevents FOUC and layout shift */
+      *,*::before,*::after{box-sizing:border-box}
+      html,body{margin:0;padding:0;width:100%;max-width:100vw;overflow-x:hidden}
+      html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      body{font-family:'Merriweather',Georgia,serif;line-height:1.6;background-color:#0f172a;color:#f1f5f9}
+      .dark body,.dark{background-color:#0f172a;color:#f1f5f9}
+      :root{--color-text:#111;--color-bg:#fff}
+      .dark{--color-text:#f1f1f1;--color-bg:#0f172a}
+      #root{min-height:100vh;min-height:100svh}
+      .min-h-\[100svh\]{min-height:100svh;min-height:100vh}
+      /* Prevent layout shift from custom cursor */
+      @media(hover:hover){body{cursor:none}}
+      /* Full width sections - no max-width constraint on main container */
+      .section-container{width:100%}
+      /* Font loading fallback */
+      .fonts-loading body{font-family:Georgia,serif}
+      .fonts-loaded body{font-family:'Merriweather',Georgia,serif}
+    </style>
 
     <!-- Prevent flash of light mode on first load -->
     <script>
@@ -43,13 +69,46 @@
         } else {
           document.documentElement.classList.remove('dark');
         }
+        // Add fonts-loading class for FOUT prevention
+        document.documentElement.classList.add('fonts-loading');
+        
+        // Handle GitHub Pages SPA redirect
+        const redirect = sessionStorage.getItem('gh-pages-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('gh-pages-redirect');
+          // Use history API to restore the original URL
+          if (redirect !== '/' && redirect !== window.location.pathname) {
+            history.replaceState(null, '', redirect);
+          }
+        }
       })();
     </script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Preconnect to font origins (high priority) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts (Merriweather 400 and 700 are most used) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" />
+    
+    <!-- Load fonts with font-display: swap for performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Font loading detection for FOUT -->
+    <script>
+      if ('fonts' in document) {
+        Promise.all([
+          document.fonts.load('400 1em Merriweather'),
+          document.fonts.load('700 1em Merriweather')
+        ]).then(function() {
+          document.documentElement.classList.remove('fonts-loading');
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      }
+    </script>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -67,7 +126,7 @@
             "https://x.com/fkh_236"
           ],
           "jobTitle": "Full Stack Developer",
-          "image": "https://images.pexels.com/photos/35383997/pexels-photo-35383997.png",
+          "image": "https://images.pexels.com/photos/35383997/pexels-photo-35383997.png?auto=compress&cs=tinysrgb&w=800&fm=webp",
           "description": "Developer, AI Engineer, Designer and Writer focused on web apps, AI integrations and creative systems."
         },
         {
@@ -80,6 +139,12 @@
       ]
     }
     </script>
+
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Farhan Kabir" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   </head>
   <body>
     <header aria-label="Primary header">
