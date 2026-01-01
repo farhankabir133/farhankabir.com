@@ -213,7 +213,7 @@ export const skills: Skill[] = [
 export const experiences: Experience[] = [
   {
     id: '1',
-    title: 'Full Stack Developer',
+    title: 'Lead Developer',
     company: 'Auto Spark',
     period: 'Aprill 2024 - Present',
     description:
@@ -222,7 +222,7 @@ export const experiences: Experience[] = [
   },
   {
     id: '2',
-    title: 'Frontend Developer (Remote)',
+    title: 'Full Stack Developer (Remote)',
     company: 'Hire My Tech',
     period: '2022 - 2023',
     description:
