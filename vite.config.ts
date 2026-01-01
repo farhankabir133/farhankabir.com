@@ -82,14 +82,16 @@ export default defineConfig({
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
-        // Bundle all node_modules into a single vendor chunk. This reduces the
-        // chance of cross-chunk circular imports triggering "Cannot access
-        // '<id>' before initialization" at runtime. If you later need fine-
-        // grained caching for individual large libs, reintroduce manual
-        // splitting carefully.
+        // Keep React and React DOM together to avoid internals error
+        // Split other large libraries for better caching
         manualChunks(id) {
           if (!id) return;
           if (id.includes('node_modules')) {
+            // IMPORTANT: Keep react and react-dom together in the same chunk
+            // Separating them causes "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED" error
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              return 'react-vendor';
+            }
             // Split large libraries into separate chunks for better caching
             if (id.includes('framer-motion')) {
               return 'framer-motion';
@@ -99,9 +101,6 @@ export default defineConfig({
             }
             if (id.includes('@tanstack')) {
               return 'tanstack';
-            }
-            if (id.includes('react-dom')) {
-              return 'react-dom';
             }
             // Group remaining vendor code
             return 'vendor';
