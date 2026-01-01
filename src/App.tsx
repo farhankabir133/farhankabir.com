@@ -62,7 +62,7 @@ function App() {
   }, []);
 
   return (
-  <div className="min-h-[100svh] bg-white dark:bg-slate-900 transition-colors duration-500 light-mode full-vh">
+  <div className="min-h-[100svh] bg-white dark:bg-slate-900 transition-colors duration-500 full-vh">
       {/* Custom animated cursor */}
       <CustomCursor />
 

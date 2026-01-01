@@ -24,64 +24,73 @@ body {
 }
 
 /* Light Mode Section Backgrounds and Separations */
-.light-mode .about-section {
+/* Using :not(.dark) to target light mode since Tailwind uses .dark class */
+:root:not(.dark) .about-section,
+html:not(.dark) .about-section {
   background-color: var(--about-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #111827;
 }
 
-.light-mode .skill-section {
+:root:not(.dark) .skill-section,
+html:not(.dark) .skill-section {
   background-color: var(--skill-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   color: #FFFFFF;
 }
 
-.light-mode .work-section {
+:root:not(.dark) .work-section,
+html:not(.dark) .work-section {
   background-color: var(--portfolio-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #111827;
 }
 
-.light-mode .client-section {
+:root:not(.dark) .client-section,
+html:not(.dark) .client-section {
   background-color: var(--testimonials-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #FFFFFF;
 }
 
 /* ✅ Fixed: Changed .blogs-section → .insight-section */
-.light-mode .insight-section {
+:root:not(.dark) .insight-section,
+html:not(.dark) .insight-section {
   background-color: var(--blogs-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #111827;
 }
 
-.light-mode .publications-section {
+:root:not(.dark) .publications-section,
+html:not(.dark) .publications-section {
   background-color: var(--publications-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #FFFFFF;
 }
 
-.light-mode .contact-section {
+:root:not(.dark) .contact-section,
+html:not(.dark) .contact-section {
   background-color: var(--contact-bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #111827;
 }
 
-.light-mode .footer-section {
+:root:not(.dark) .footer-section,
+html:not(.dark) .footer-section {
   background-color: var(--footer-bg-light);
   color: #FFFFFF;
 }
 
 /* Dark mode shared borders */
-.dark-mode .about-section,
-.dark-mode .skill-section,
-.dark-mode .work-section,
-.dark-mode .client-section,
-.dark-mode .insight-section,
-.dark-mode .publications-section,
-.dark-mode .contact-section,
-.dark-mode .footer-section {
+.dark .about-section,
+.dark .skill-section,
+.dark .work-section,
+.dark .client-section,
+.dark .insight-section,
+.dark .publications-section,
+.dark .contact-section,
+.dark .footer-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
