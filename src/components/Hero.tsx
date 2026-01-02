@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Mail, X } from 'lucide-react';
 import useMediaQuery from '../hooks/useMediaQuery';
 const GravityCodeOrbsBackground = lazy(() => import('./GravityCodeOrbsBackground'));
+const MobileEventHorizon = lazy(() => import('./MobileEventHorizon'));
 import { supabase } from '../lib/supabase';
 
 const Hero: React.FC = () => {
@@ -130,12 +131,33 @@ const Hero: React.FC = () => {
 
   const isMobile = useMediaQuery('(max-width: 767px)');
 
+  // Fallback background for loading state
+  const LoadingBackground = () => (
+    <div 
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 1,
+        background: 'radial-gradient(ellipse at center, #1e293b 0%, #0f172a 30%, #020617 60%, #000000 100%)',
+      }}
+    />
+  );
+
   return (
   <section id="home" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black full-vh">
       {/* Render animated orb background only on desktop; skip entirely on mobile for performance */}
       {!isMobile && (
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingBackground />}>
           <GravityCodeOrbsBackground />
+        </Suspense>
+      )}
+      {/* Render MobileEventHorizon gravitational lensing effect on mobile only */}
+      {isMobile && (
+        <Suspense fallback={<LoadingBackground />}>
+          <MobileEventHorizon />
         </Suspense>
       )}
   <div className="relative z-30 flex flex-col items-center justify-center w-full h-full pt-20 sm:pt-32 pb-16 px-4">

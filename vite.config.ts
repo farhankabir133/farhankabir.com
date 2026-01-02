@@ -87,9 +87,15 @@ export default defineConfig({
         manualChunks(id) {
           if (!id) return;
           if (id.includes('node_modules')) {
-            // IMPORTANT: Keep react and react-dom together in the same chunk
+            // IMPORTANT: Keep react, react-dom, scheduler, and react-dependent 3D libs together
             // Separating them causes "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED" error
-            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+            if (
+              id.includes('react') || 
+              id.includes('react-dom') || 
+              id.includes('scheduler') ||
+              id.includes('@react-three') ||
+              id.includes('three')
+            ) {
               return 'react-vendor';
             }
             // Split large libraries into separate chunks for better caching
