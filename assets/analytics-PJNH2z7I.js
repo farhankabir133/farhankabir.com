@@ -1,0 +1,1 @@
+const e={getChatbotMetrics:async()=>({totalInteractions:0,uniqueSessions:0,messagesSent:0,leadsGenerated:0,voiceUsage:0,walletConnections:0,dailyStats:{}}),track:async(e,s)=>Promise.resolve()};export{e as a};
